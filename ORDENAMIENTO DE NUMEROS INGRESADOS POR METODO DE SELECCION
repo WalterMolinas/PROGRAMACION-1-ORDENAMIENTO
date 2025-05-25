@@ -1,0 +1,33 @@
+#include <stdio.h>
+/*Agarrar 10 números y ordénalos de mayor a menor usando el algoritmo de selección.*/
+int main() {
+	int arreglo[10];
+	int i, j, temp;
+	printf("Ingrese Los 10 elementos del arreglo\n");
+	for(i=0;i<10;i++){
+		printf("Elemento %d: ",i);
+		scanf("%d",&arreglo[i]);
+	}
+	printf("Arreglo Desordenado: \n");
+	for(i=0;i<10;i++){
+		printf("%d ",arreglo[i]);
+	}
+	for (i = 0; i < 10 - 1; i++) {
+		for (j = 0; j < 10 - i - 1; j++) {
+			if (arreglo[j] > arreglo[j + 1]) {
+				// Intercambio
+				temp = arreglo[j];
+				arreglo[j] = arreglo[j + 1];
+				arreglo[j + 1] = temp;
+			}
+		}
+	}
+	
+	printf("\nArreglo ordenado: \n");
+	for (i = 9; i>=0; i--) {
+		printf("%d ", arreglo[i]);
+	}
+	
+	return 0;
+}
+
