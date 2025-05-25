@@ -1,0 +1,33 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+/*Generar 10 números aleatorios entre 1 y 100, guardarlos en un array y ordenarlos usando el algoritmo de inserción. Mostrarlos antes y después.*/
+int main() {
+	srand(time(NULL));
+	int aleatorio = rand() %100+1;
+	int i,j,temporal, arreglo[10];
+	printf("El arreglo aleatorio de 10 elementos será: \n");
+	for(i=0;i<10;i++){
+		arreglo[i]= aleatorio;
+		aleatorio= rand() %100 +1;
+	}
+	for(i=0;i<10;i++){
+		printf("%d ",arreglo[i]);
+	}
+	for(i=1;i<10;i++){
+		temporal=arreglo[i];
+		j=i-1;
+		
+		while(j>=0 && arreglo[j]>temporal){
+			arreglo[j+1]=arreglo[j];
+			j--;
+		}
+		arreglo[j+1]=temporal;
+	}
+	printf("\nArreglo ordenado: \n");
+	for(i=0;i<10;i++){
+		printf("%d ", arreglo[i]);
+	}
+	return 0;
+}
+
